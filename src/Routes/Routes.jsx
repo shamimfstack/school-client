@@ -3,6 +3,8 @@ import MainLayout from "../Layout/MainLayout";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
 import Dashboard from "../Shared/Dashboard/Dashboard";
+import About from "../Pages/About/About/About";
+import Contact from "../Pages/Contact/Contact/Contact";
 
 
 
@@ -14,6 +16,14 @@ const Routes = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>
+            },
+            {
+                path: 'about',
+                element: <About></About>
+            },
+            {
+                path: 'contact',
+                element: <Contact></Contact>
             }
         ]
     },
