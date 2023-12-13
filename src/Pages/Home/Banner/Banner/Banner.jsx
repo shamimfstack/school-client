@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const Banner = () => {
@@ -17,7 +18,9 @@ const Banner = () => {
             <p className="mb-5">
             Could you please provide the name of your school, its location, and any specific aspects or features you would like me to highlight? Additionally, let me know if there are any particular events, achievements, or characteristics you want me to include in the text
             </p>
+            <Link to="/contact">
             <button className="btn btn-info">Contact Us</button>
+            </Link>
           </div>
         </div>
       </div>
