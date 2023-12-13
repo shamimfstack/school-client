@@ -5,6 +5,7 @@ import Login from "../Pages/Login/Login";
 import Dashboard from "../Shared/Dashboard/Dashboard";
 import About from "../Pages/About/About/About";
 import Contact from "../Pages/Contact/Contact/Contact";
+import Register from "../Pages/Register/Register";
 
 
 
@@ -30,6 +31,10 @@ const Routes = createBrowserRouter([
     {
         path: 'login',
         element: <Login></Login>
+    },
+    {
+        path: 'register',
+        element: <Register></Register>
     },
     {
         path: 'dashboard',

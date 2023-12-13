@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Navbar() {
   const navOptions = (
@@ -37,7 +37,7 @@ export default function Navbar() {
   );
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-gray-100">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -71,7 +71,9 @@ export default function Navbar() {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        <Link to="login">
+          <button className="btn btn-info">Login</button>
+        </Link>
       </div>
     </div>
   );
