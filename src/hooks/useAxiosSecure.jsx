@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import useAuth from "./useAuth";
 
 const axiosSecure = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "https://school-management-server-zeta.vercel.app",
 });
 
 const useAxiosSecure = () => {
@@ -14,11 +14,13 @@ const useAxiosSecure = () => {
     function (config) {
       // request interceptor to add authorization header for every secure call to the api
       const token = localStorage.getItem("access-token");
-      // console.log('request stopped by interceptor', token);
+      console.log('request stopped by interceptor', token);
       config.headers.authorization = `Bearer ${token}`;
+      console.log(config.headers.authorization);
       return config;
     },
     function (error) {
+      console.log(error);
       return Promise.reject(error);
     }
   );
@@ -30,7 +32,7 @@ const useAxiosSecure = () => {
     },
     async (err) => {
       const status = err.response.status;
-      // console.log('status error in the interceptors');
+      console.log('status error in the interceptors');
       // for 401 or 403 logout the user and move the user to the login page
       if (status === 401 || status === 403) {
         await logOutUser();

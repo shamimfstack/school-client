@@ -1,6 +1,18 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+// import Swal from "sweetalert2";
 
 export default function Navbar() {
+  const { user, logOutUser } = useAuth();
+  const navigate = useNavigate();
+
+const handleLogout = () => {
+  logOutUser()
+  .then(() => {
+    navigate('/login');
+  })
+}
+
   const navOptions = (
     <>
       <li>
@@ -20,7 +32,7 @@ export default function Navbar() {
             isPending ? "pending" : isActive ? "text-purple-600" : ""
           }
         >
-        About Us
+          About Us
         </NavLink>
       </li>
       <li>
@@ -30,7 +42,7 @@ export default function Navbar() {
             isPending ? "pending" : isActive ? "text-purple-600" : ""
           }
         >
-        Contact Us
+          Contact Us
         </NavLink>
       </li>
     </>
@@ -66,14 +78,20 @@ export default function Navbar() {
         <a className="btn btn-ghost text-xl">daisyUI</a>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-          {navOptions}
-        </ul>
+        <ul className="menu menu-horizontal px-1">{navOptions}</ul>
       </div>
       <div className="navbar-end">
-        <Link to="login">
-          <button className="btn btn-info">Login</button>
-        </Link>
+        {user ? (
+          <>
+            <button onClick={handleLogout} className="btn btn-info btn-sm">Logout</button>
+          </>
+        ) : (
+          <>
+            <Link to="login">
+              <button className="btn btn-info">Login</button>
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );
