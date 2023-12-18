@@ -6,6 +6,11 @@ import Dashboard from "../Layout/Dashboard";
 import About from "../Pages/About/About/About";
 import Contact from "../Pages/Contact/Contact/Contact";
 import Register from "../Pages/Register/Register";
+import AdminProfile from "../Pages/Dashboard/AdminProfile/AdminProfile";
+import ManageTeachers from "../Pages/Dashboard/ManageTeachers/ManageTeachers";
+import ManageStudents from "../Pages/Dashboard/ManageStudents/ManageStudents";
+import CreateAnnouncements from "../Pages/Dashboard/CreateAnnouncements/CreateAnnouncements";
+import ClassSchedule from "../Pages/Dashboard/ClassSchedule/ClassSchedule";
 
 
 
@@ -38,7 +43,29 @@ const Routes = createBrowserRouter([
     },
     {
         path: 'dashboard',
-        element: <Dashboard></Dashboard>
+        element: <Dashboard></Dashboard>,
+        children: [
+            {
+                path: "adminProfile",
+                element: <AdminProfile></AdminProfile>
+            },
+            {
+                path: "manageTeachers",
+                element: <ManageTeachers></ManageTeachers>
+            },
+            {
+                path: "manageStudents",
+                element: <ManageStudents></ManageStudents>
+            },
+            {
+                path: "createAnnouncements",
+                element: <CreateAnnouncements></CreateAnnouncements>
+            },
+            {
+                path: "classSchedule",
+                element: <ClassSchedule></ClassSchedule>
+            }
+        ]
     }
 ])
 

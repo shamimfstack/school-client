@@ -27,6 +27,18 @@ const Dashboard = () => {
             <li>
               <NavLink>Admin Profile</NavLink>
             </li>
+            <li>
+              <NavLink>Manage Teacher</NavLink>
+            </li>
+            <li>
+              <NavLink>Manage Students</NavLink>
+            </li>
+            <li>
+              <NavLink>Create Announcements</NavLink>
+            </li>
+            <li>
+              <NavLink>Class Schedule</NavLink>
+            </li>
           </> : <>
             <li>
               <NavLink>User Profile</NavLink>
